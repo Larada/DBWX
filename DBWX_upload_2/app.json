@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/putBottlePage/putBottlePage",
+    "pages/getBottlePage/getBottlePage",
+    "pages/personalPage/personalPage",
+    "pages/testCss/testCss"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "style": "v2",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
+    }
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "tabBar": {
+    "color": "#e6e6e6",
+    "borderStyle": "white",
+    "selectedColor": "#333333",
+    "list": [
+      {
+        "pagePath": "pages/putBottlePage/putBottlePage",
+        "iconPath": "./pages/image/tabbar_put_1.png",
+        "selectedIconPath": "./pages/image/tabbar_put_2.png",
+        "text": "投放"
+      },
+      {
+        "pagePath": "pages/getBottlePage/getBottlePage",
+        "iconPath": "./pages/image/tabbar_get_1.png",
+        "selectedIconPath": "./pages/image/tabbar_get_2.png",
+        "text": "打捞"
+      },
+      {
+        "pagePath": "pages/personalPage/personalPage",
+        "iconPath": "./pages/image/tabbar_personal_1.png",
+        "selectedIconPath": "./pages/image/tabbar_personal_2.png",
+        "text": "个人管理"
+      }
+    ]
+  }
+}

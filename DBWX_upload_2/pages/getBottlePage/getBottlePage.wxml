@@ -1,0 +1,29 @@
+<!--pages/getBottlePage/getBottlePage.wxml-->
+<view class="getB">
+  <view class="sea">
+  <!-- 图：瓶子 -->
+    <!-- 背景海，+bgm；+日月背景 -->
+    <!-- 按下打捞->动画：瓶子逐渐显现在半透明框中，摇两下 -->
+    
+  </view>
+  <view class="target"></view>
+
+  <view class="checks_get">
+        <view style="font-size: 25rpx;color: white;">——内容倾向——</view>
+        <checkbox-group bindchange="preferContents" >
+        <!-- 爱好，生活，学习，工作，情感-Hobbies, life, study, work, emotions -->
+          <checkbox value="hobbies" style="scale: 0.8;">爱好</checkbox>
+          <checkbox value="life" style="scale: 0.8;">生活</checkbox>
+          <checkbox value="study" style="scale: 0.8;">学习</checkbox>
+          <checkbox value="work" style="scale: 0.8;">工作</checkbox>
+          <checkbox value="emotions" style="scale: 0.8;">情感</checkbox>
+        </checkbox-group>
+  </view>
+
+  <view class="button">
+    <button bindtap="getButton" class="getButton">打捞一个漂流瓶</button>
+    <!-- 内容倾向放底下 -->
+  </view>
+  <view class="sunMoon"></view>
+
+</view>

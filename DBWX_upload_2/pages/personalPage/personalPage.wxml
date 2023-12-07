@@ -1,0 +1,138 @@
+<!--pages/personalPage/personalPage.wxml-->
+
+<!-- 前面两个界面都是没有普适性的！需要考虑长宽比率和嵌套模块来处理比率 -->
+<!-- 比率！如何设置适合的比率！ -->
+<view>
+  <view class="all_back">
+    <!-- 1.个人信息列表personal_data -->
+    <view class="personal_data">
+      <view class="id_name_photo">
+        <view class="profile_photo">头像</view>
+        <view style="line-height: 160rpx;font-size:large;text-align: center;">name</view>
+        <view style="line-height: 40rpx;font-size: small;text-align: center;">id:111111111</view>
+      </view>
+      <!-- 把个人信息都放到里面就好了，不用太管格式 -->
+      <view class="data_other">
+        <view class="data_single">· 生日：1111-11-11</view>
+        <view class="data_single">· 邮箱：111111111</view>
+        <view class="data_single">· 地区：1111111111111111</view>
+        <view class="data_single">· 个人介绍：1111111111111111111111111111111111111111</view>
+      </view>
+    </view>
+    
+    
+    
+    <!-- 2.漂流瓶列表db_data -->
+    <view class="db_data">
+      <!-- 2-1.打捞得到的漂流瓶列表 -->
+      <view class="db_get">
+        <view class="get_map" >
+          <!-- 列表表头 -->
+          <view class="get_part" data-index="1" bind:tap="tap_db_get">已接收漂流瓶</view>
+          <!-- 隐藏的列表内容 -->
+          <!-- 弹出窗口：回复，标签 -->
+          <view wx:if="{{showIndex_get == 1}}">
+            <view wx:if="{{array_get}}">
+              <view class="top">
+                <view class="sort" bindtap="">排序</view>
+                <view class="tag" bindtap="">标签</view>
+              </view>
+              <view class="get_solo">
+                <view class="db_content">111111111 11111111111111111111 1111111111111111111111111111111111111111111111111111111111111111</view>
+                <view class="options">
+                  <view class="option">回复</view>
+                  <view class="option">删除</view>
+                  <view class="option">再投递</view>
+                </view>
+              </view>
+              <view class="get_solo">
+                <view class="db_content"></view>
+                <view class="options">
+                  <view class="option">回复</view>
+                  <view class="option">删除</view>
+                  <view class="option">再投递</view>
+                </view>
+              </view>
+              
+              <view class="get_solo">
+                <view class="db_content"></view>
+                <view class="options">
+                  <view class="option">回复</view>
+                  <view class="option">删除</view>
+                  <view class="option">再投递</view>
+                </view>
+              </view>
+              <view class="get_solo">
+                <view class="db_content"></view>
+                <view class="options">
+                  <view class="option">回复</view>
+                  <view class="option">删除</view>
+                  <view class="option">再投递</view>
+                </view>
+              </view>
+              <view class="get_solo">
+                <view class="db_content"></view>
+                <view class="options">
+                  <view class="option">回复</view>
+                  <view class="option">删除</view>
+                  <view class="option">再投递</view>
+                </view>
+              </view>
+              <!-- <view>这里是隐藏的列表中的一个</view> -->
+              <!-- <view wx:for="{{obj}}" wx:key="index"></view> -->
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 2-2.收到回复的漂流瓶列表db_reply -->
+      <view class="db_reply">
+        <view class="reply_map">
+          <!-- 列表表头 -->
+          <view class="reply_part" data-index="2" bind:tap="tap_db_reply">收到回复的漂流瓶</view>
+          <!-- 隐藏的列表内容 -->
+          <!-- 弹出窗口：回复，标签 -->
+          <view wx:if="{{showIndex_reply == 2}}">
+            <view wx:if="{{array_reply}}">
+              <view class="top">
+                <view class="sort" bindtap="" style="width: 100%;border: 0;">排序</view>
+              </view>
+              <!-- 一个单位是reply_db所包含的内容 -->
+              <!-- 1 -->
+              <view class="reply_db">
+                <view class="reply_content">漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容</view>
+                <view style="margin-left:10rpx;font-size: small;">回复：</view>
+                <view class="reply_single">回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复</view>
+                <view class="reply_single">回复2回复2回复2回复2回复2回复2回复2</view>
+                <view class="reply_single">回复3</view>
+                <view class="reply_single">回复4</view>
+                <view class="cut_line"></view>
+              </view>
+              <!-- 2 -->
+              <view class="reply_db">
+                <view class="reply_content">漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容</view>
+                <view style="margin-left:10rpx;font-size: small;">回复：</view>
+                <view class="reply_single">回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复</view>
+                <view class="reply_single">回复2回复2回复2回复2回复2回复2回复2</view>
+                <view class="reply_single">回复3</view>
+                <view class="reply_single">回复4</view>
+                <view class="cut_line"></view>
+              </view>
+              <!-- 3 -->
+              <view class="reply_db">
+                <view class="reply_content">漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容</view>
+                <view style="margin-left:10rpx;font-size: small;">回复：</view>
+                <view class="reply_single">回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复1回复</view>
+                <view class="reply_single">回复2回复2回复2回复2回复2回复2回复2</view>
+                <view class="reply_single">回复3</view>
+                <view class="reply_single">回复4</view>
+                <view class="cut_line"></view>
+              </view>
+              <!-- <view wx:for="{{obj}}" wx:key="index"></view> -->
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
