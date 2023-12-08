@@ -18,6 +18,10 @@
         <view class="data_single">· 地区：1111111111111111</view>
         <view class="data_single">· 个人介绍：1111111111111111111111111111111111111111</view>
       </view>
+      <view class="button">
+        <button class="bu_change_data">修改个人信息</button>
+        <button class="bu_tran_visitor">切换到游客</button>
+      </view>
     </view>
     
     
@@ -30,54 +34,75 @@
           <!-- 列表表头 -->
           <view class="get_part" data-index="1" bind:tap="tap_db_get">已接收漂流瓶</view>
           <!-- 隐藏的列表内容 -->
-          <!-- 弹出窗口：回复，标签 -->
+          <!-- 弹出窗口：标签 -->
           <view wx:if="{{showIndex_get == 1}}">
             <view wx:if="{{array_get}}">
               <view class="top">
-                <view class="sort" bindtap="">排序</view>
-                <view class="tag" bindtap="">标签</view>
+                <view class="sort" data-index="4" bindtap="tap_db_get_sort">排序</view>
+                <view class="tag" data-index="3" bindtap="tap_db_get_tag">标签</view>
+              </view>
+              <!-- 排序显示的位置 -->
+              <view wx:if="{{showIndex_get_top == 4}}">
+                <view class="sort_area">
+                  <radio-group bindchange="get_sort_choice">
+                    <view class="sort_ch">
+                      <radio value="sort_1" >按接收时间先后排序</radio>
+                      <radio value="sort_2" >按漂流瓶内容的多少排序</radio>
+                    </view>
+                  </radio-group>
+                </view>
+              </view>
+              <!-- 标签显示的位置 -->
+              <view wx:if="{{showIndex_get_tag == 3}}">
+                <view wx:if="{{array_get_tag}}">
+                  <view class="tag_area">
+                    <radio-group bindchange="tag_choice">
+                      <view class="tag_ch">
+                        <radio value="tag_1" style="">标签1</radio>
+                        <radio value="tag_2" >标签11111</radio>
+                        <radio value="tag_3" >标签1</radio>
+                        <radio value="tag_4" >标签11111</radio>
+                        <radio value="tag_5" >标签1</radio>
+                        <radio value="tag_6" >标签11111</radio>
+                      </view>
+                    </radio-group>
+                  </view>
+                </view>
               </view>
               <view class="get_solo">
                 <view class="db_content">111111111 11111111111111111111 1111111111111111111111111111111111111111111111111111111111111111</view>
-                <view class="options">
-                  <view class="option">回复</view>
-                  <view class="option">删除</view>
-                  <view class="option">再投递</view>
+                <view class="options_place">
+                  <button class="option_2">再投递</button>
+                  <view class="options">
+                    <button class="option">回复</button>
+                    <button class="option">删除</button>
+                    <button class="option">举报</button>
+                  </view>
+                </view>
+              </view>
+              <view class="get_solo">
+                <view class="db_content">111111111 111111111111</view>
+                <view class="options_place">
+                  <button class="option_2">再投递</button>
+                  <view class="options">
+                    <button class="option">回复</button>
+                    <button class="option">删除</button>
+                    <button class="option">举报</button>
+                  </view>
                 </view>
               </view>
               <view class="get_solo">
                 <view class="db_content"></view>
-                <view class="options">
-                  <view class="option">回复</view>
-                  <view class="option">删除</view>
-                  <view class="option">再投递</view>
+                <view class="options_place">
+                  <button class="option_2">再投递</button>
+                  <view class="options">
+                    <button class="option">回复</button>
+                    <button class="option">删除</button>
+                    <button class="option">举报</button>
+                  </view>
                 </view>
               </view>
               
-              <view class="get_solo">
-                <view class="db_content"></view>
-                <view class="options">
-                  <view class="option">回复</view>
-                  <view class="option">删除</view>
-                  <view class="option">再投递</view>
-                </view>
-              </view>
-              <view class="get_solo">
-                <view class="db_content"></view>
-                <view class="options">
-                  <view class="option">回复</view>
-                  <view class="option">删除</view>
-                  <view class="option">再投递</view>
-                </view>
-              </view>
-              <view class="get_solo">
-                <view class="db_content"></view>
-                <view class="options">
-                  <view class="option">回复</view>
-                  <view class="option">删除</view>
-                  <view class="option">再投递</view>
-                </view>
-              </view>
               <!-- <view>这里是隐藏的列表中的一个</view> -->
               <!-- <view wx:for="{{obj}}" wx:key="index"></view> -->
             </view>
@@ -90,11 +115,21 @@
           <!-- 列表表头 -->
           <view class="reply_part" data-index="2" bind:tap="tap_db_reply">收到回复的漂流瓶</view>
           <!-- 隐藏的列表内容 -->
-          <!-- 弹出窗口：回复，标签 -->
+          <!-- 弹出窗口：标签 -->
           <view wx:if="{{showIndex_reply == 2}}">
             <view wx:if="{{array_reply}}">
               <view class="top">
-                <view class="sort" bindtap="" style="width: 100%;border: 0;">排序</view>
+                <view class="sort" data-index="5" bindtap="tap_db_reply_sort" style="width: 100%;border: 0;background-color:rgb(218, 233, 215);color: black;">排序</view>
+              </view>
+              <view wx:if="{{showIndex_reply_sort == 5}}">
+                <view class="sort_area" style="background-color:rgb(218, 233, 215);border-color: rgb(201, 224, 197);">
+                  <radio-group bindchange="reply_sort_choice">
+                    <view class="sort_ch">
+                      <radio value="sort_1" >按投递时间先后排序</radio>
+                      <radio value="sort_2" >按漂流瓶内容的多少排序</radio>
+                    </view>
+                  </radio-group>
+                </view>
               </view>
               <!-- 一个单位是reply_db所包含的内容 -->
               <!-- 1 -->

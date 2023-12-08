@@ -36,8 +36,8 @@
   z-index: 999;
 }
 .getButton{
-  margin-top: 600rpx;
-
+  margin-top: 520rpx;
+  
   height: 100rpx;
   width: 60rpx;
   border-radius: 60rpx;
@@ -85,4 +85,48 @@
   scale: 0.8;
   font-size: 32rpx;
   color: white;
+}
+
+.db_content{
+  position: fixed;
+  width: 85%;
+  height: 900rpx;
+  background-color: rgb(206, 221, 203);
+  /* z-index: 1000; */
+  z-index: -1;
+  border-radius: 40rpx  0 40rpx 0;
+}
+.text_content{
+  width: 90%;
+  height: 600rpx;
+  margin: auto;
+  margin-top: 30rpx;
+  border-radius: 20rpx;
+  padding: 2%;
+  background-color: rgb(235, 243, 225);
+  font-size: 40rpx;
+  color: rgb(119, 129, 118);
+}
+.drop_one{
+  width: 94%;
+  margin: auto;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  color: #3f805f;
+}
+.bu_confirm{
+  margin-top: 50rpx;
+  
+  height: 70rpx !important;
+  width: 350rpx !important;
+  border-radius: 20rpx 0 20rpx 0;
+  background-color:rgb(240, 247, 243);
+
+  text-align: center;
+  line-height: 8vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 35rpx;
+  color: rgb(113, 122, 117);
 }

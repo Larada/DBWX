@@ -26,4 +26,25 @@
   </view>
   <view class="sunMoon"></view>
 
+  <!-- 显示打捞到的漂流瓶页面 -->
+  <view class="db_content">
+    <!-- 漂流瓶字 -->
+    <view class="text_content">这是示例的漂流瓶文字内容这是示例的漂流瓶文字内容这是示例的漂流瓶文字内容这是示例的漂流瓶文字内容这是示例的漂流瓶文字内容这是示例的漂流瓶文字内容</view>
+    <!-- 投放人的信息 -->
+    <view class="drop_one">
+      <!-- 格式是"由 x y " -->
+      <!-- x:匿名用户/小蓝(id:11111111) y:投放给陌生人/指定投放给你 -->
+      <!-- eg.由 匿名用户 投放给陌生人 -->
+      <view style="display: inline-block;">由*</view>
+      <view style="display: inline-block;">匿名用户</view>
+      <view style="display: inline-block;">*</view>
+      <view style="display: inline-block;">投放给陌生人</view>
+    </view>
+    <!-- 确定 -->
+    <!-- 点击确定后更改db_content的z-index为0，使这个界面隐藏起来 -->
+    <view>
+      <button class="bu_confirm">确定</button>
+    </view>
+    
+  </view>
 </view>

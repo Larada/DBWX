@@ -5,8 +5,11 @@ Page({
     showIndex_reply:0,
     showIndex_get:0,
     array_get:false,
-    
     array_reply:false,
+    array_reply_tag:false,
+    array_get_tag:false,
+    showIndex_get_top:0,
+    showIndex_reply_sort:0,
   },
   tap_db_get:function(e){
     if(e.currentTarget.dataset.index != this.data.showIndex_get){
@@ -38,6 +41,52 @@ Page({
         showIndex_reply:0,
       })
       console.log(this.data.showIndex_reply)
+    }
+  },
+  tap_db_get_tag:function(e){
+    if(e.currentTarget.dataset.index != this.data.showIndex_get_tag){
+      this.setData({
+        showIndex_get_tag:e.currentTarget.dataset.index,
+        array_get_tag:true
+      })
+      console.log(this.data.showIndex_get_tag),
+      console.log(e.currentTarget.dataset.index)
+    }
+    else{
+      this.setData({
+        showIndex_get_tag:0,
+      })
+      console.log(this.data.showIndex_get_tag)
+    }
+  },
+  tap_db_get_sort:function(e){
+    if(e.currentTarget.dataset.index != this.data.showIndex_get_top){
+      this.setData({
+        showIndex_get_top:e.currentTarget.dataset.index
+      })
+      console.log(this.data.showIndex_get_top),
+      console.log(e.currentTarget.dataset.index)
+    }
+    else{
+      this.setData({
+        showIndex_get_top:0,
+      })
+      console.log(this.data.showIndex_get_top)
+    }
+  },
+  tap_db_reply_sort:function(e){
+    if(e.currentTarget.dataset.index != this.data.showIndex_reply_sort){
+      this.setData({
+        showIndex_reply_sort:e.currentTarget.dataset.index
+      })
+      console.log(this.data.showIndex_reply_sort),
+      console.log(e.currentTarget.dataset.index)
+    }
+    else{
+      this.setData({
+        showIndex_reply_sort:0,
+      })
+      console.log(this.data.showIndex_reply_sort)
     }
   },
   /**
