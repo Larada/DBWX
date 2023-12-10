@@ -1,13 +1,11 @@
 <!--pages/getBottlePage/getBottlePage.wxml-->
 <view class="getB">
-  <view class="sea">
-  <!-- 图：瓶子 -->
-    <!-- 背景海，+bgm；+日月背景 -->
-    <!-- 按下打捞->动画：瓶子逐渐显现在半透明框中，摇两下 -->
-    
-  </view>
+  <!-- 装饰 -->
+  <view class="sea"></view>
   <view class="target"></view>
 
+
+  <!-- 1.内容倾向，勾选框，多选，checkbox-group -->
   <view class="checks_get">
         <view style="font-size: 25rpx;color: white;">——内容倾向——</view>
         <checkbox-group bindchange="preferContents" >
@@ -20,17 +18,20 @@
         </checkbox-group>
   </view>
 
+
+  <!-- 2.打捞按钮 -->
   <view class="button">
     <button bindtap="getButton" class="getButton">打捞一个漂流瓶</button>
-    <!-- 内容倾向放底下 -->
   </view>
   <view class="sunMoon"></view>
 
-  <!-- 显示打捞到的漂流瓶页面 -->
+
+  <!-- 3.显示打捞到的漂流瓶页面 -->
+  <!-- 通过注释掉wxss文件内.db_content的z-index=-1可以实现显示，解除对z-index=-1注释可以隐藏。不用管上一句的z-index=1000 -->
   <view class="db_content">
-    <!-- 漂流瓶字 -->
+    <!-- 3-1.漂流瓶内容 -->
     <view class="text_content">这是示例的漂流瓶文字内容这是示例的漂流瓶文字内容这是示例的漂流瓶文字内容这是示例的漂流瓶文字内容这是示例的漂流瓶文字内容这是示例的漂流瓶文字内容</view>
-    <!-- 投放人的信息 -->
+    <!-- 3-2.投放人的信息 -->
     <view class="drop_one">
       <!-- 格式是"由 x y " -->
       <!-- x:匿名用户/小蓝(id:11111111) y:投放给陌生人/指定投放给你 -->
@@ -40,8 +41,8 @@
       <view style="display: inline-block;">*</view>
       <view style="display: inline-block;">投放给陌生人</view>
     </view>
-    <!-- 确定 -->
-    <!-- 点击确定后更改db_content的z-index为0，使这个界面隐藏起来 -->
+    <!-- 3-3.确定 -->
+    <!-- 点击确定后为了使这个界面隐藏起来，需要更改wxss文件内.db_content的z-index为-1 -->
     <view>
       <button class="bu_confirm">确定</button>
     </view>

@@ -1,23 +1,21 @@
-<!--pages/personalPage/personalPage.wxml-->
-
-<!-- 前面两个界面都是没有普适性的！需要考虑长宽比率和嵌套模块来处理比率 -->
-<!-- 比率！如何设置适合的比率！ -->
 <view>
   <view class="all_back">
-    <!-- 1.个人信息列表personal_data -->
+    <!-- 1.个人信息列表，personal_data -->
     <view class="personal_data">
+      <!-- 1-1.头像、姓名、id -->
       <view class="id_name_photo">
         <view class="profile_photo">头像</view>
         <view style="line-height: 160rpx;font-size:large;text-align: center;">name</view>
         <view style="line-height: 40rpx;font-size: small;text-align: center;">id:111111111</view>
       </view>
-      <!-- 把个人信息都放到里面就好了，不用太管格式 -->
+      <!-- 1-2.各种身份信息 -->
       <view class="data_other">
         <view class="data_single">· 生日：1111-11-11</view>
         <view class="data_single">· 邮箱：111111111</view>
         <view class="data_single">· 地区：1111111111111111</view>
         <view class="data_single">· 个人介绍：1111111111111111111111111111111111111111</view>
       </view>
+      <!-- 1-3.按钮：修改个人信息、切换游客身份 -->
       <view class="button_personal_data">
         <button class="bu_change_data">修改个人信息</button>
         <button class="bu_tran_visitor">切换到游客</button>
@@ -25,23 +23,22 @@
     </view>
     
     
-    
-    <!-- 2.漂流瓶列表db_data -->
+    <!-- 漂流瓶列表，db_data，包含已接收漂流瓶和收到回复的漂流瓶 -->
     <view class="db_data">
-      <!-- 2-1.打捞得到的漂流瓶列表 -->
+    
+    
+    <!-- 2.打捞得到的漂流瓶列表db_get -->
       <view class="db_get">
         <view class="get_map" >
           <!-- 列表表头 -->
           <view class="get_part" data-index="1" bind:tap="tap_db_get">已接收漂流瓶</view>
-          <!-- 隐藏的列表内容 -->
-          <!-- 弹出窗口：标签 -->
           <view wx:if="{{showIndex_get == 1}}">
             <view wx:if="{{array_get}}">
               <view class="top">
                 <view class="sort" data-index="4" bindtap="tap_db_get_sort">排序</view>
                 <view class="tag" data-index="3" bindtap="tap_db_get_tag">标签</view>
               </view>
-              <!-- 排序显示的位置 -->
+              <!-- 2-1.点击“排序”后弹出的窗口，共2种排序方式 -->
               <view wx:if="{{showIndex_get_top == 4}}">
                 <view class="sort_area">
                   <radio-group bindchange="get_sort_choice">
@@ -52,13 +49,13 @@
                   </radio-group>
                 </view>
               </view>
-              <!-- 标签显示的位置 -->
+              <!-- 2-2.点击“标签”后弹出的窗口，删除和增加按钮可以修改标签 -->
               <view wx:if="{{showIndex_get_tag == 3}}">
                 <view wx:if="{{array_get_tag}}">
                   <view class="tag_area">
                     <radio-group bindchange="tag_choice">
                       <view class="tag_ch">
-                        <radio value="tag_1" style="">标签1</radio>
+                        <radio value="tag_1">标签1</radio>
                         <radio value="tag_2" >标签11111</radio>
                         <radio value="tag_3" >标签1</radio>
                         <radio value="tag_4" >标签11111</radio>
@@ -73,6 +70,10 @@
                   </view>
                 </view>
               </view>
+
+
+              <!-- 2-3.单条的漂流瓶是get_solo -->
+              <!-- eg1 -->
               <view class="get_solo">
                 <view class="db_content">111111111 11111111111111111111 1111111111111111111111111111111111111111111111111111111111111111</view>
                 <view class="options_place">
@@ -84,6 +85,7 @@
                   </view>
                 </view>
               </view>
+              <!-- eg2 -->
               <view class="get_solo">
                 <view class="db_content">111111111 111111111111</view>
                 <view class="options_place">
@@ -95,6 +97,7 @@
                   </view>
                 </view>
               </view>
+              <!-- eg3 -->
               <view class="get_solo">
                 <view class="db_content"></view>
                 <view class="options_place">
@@ -106,25 +109,24 @@
                   </view>
                 </view>
               </view>
-              
-              <!-- <view>这里是隐藏的列表中的一个</view> -->
-              <!-- <view wx:for="{{obj}}" wx:key="index"></view> -->
             </view>
           </view>
         </view>
       </view>
-      <!-- 2-2.收到回复的漂流瓶列表db_reply -->
+
+
+    <!-- 3.收到回复的漂流瓶列表db_reply -->
       <view class="db_reply">
         <view class="reply_map">
           <!-- 列表表头 -->
           <view class="reply_part" data-index="2" bind:tap="tap_db_reply">收到回复的漂流瓶</view>
-          <!-- 隐藏的列表内容 -->
-          <!-- 弹出窗口：标签 -->
           <view wx:if="{{showIndex_reply == 2}}">
             <view wx:if="{{array_reply}}">
               <view class="top">
                 <view class="sort" data-index="5" bindtap="tap_db_reply_sort" style="width: 100%;border: 0;background-color:rgb(218, 233, 215);color: black;">排序</view>
               </view>
+
+              <!-- 3-1.点击“排序”后弹出的窗口，共2种排序方式 -->
               <view wx:if="{{showIndex_reply_sort == 5}}">
                 <view class="sort_area" style="background-color:rgb(218, 233, 215);border-color: rgb(201, 224, 197);">
                   <radio-group bindchange="reply_sort_choice">
@@ -135,8 +137,9 @@
                   </radio-group>
                 </view>
               </view>
-              <!-- 一个单位是reply_db所包含的内容 -->
-              <!-- 1 -->
+
+              <!-- 3-2.reply_db是漂流瓶及其回复的一个单位 -->
+              <!-- eg1 -->
               <view class="reply_db">
                 <view class="reply_content">漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容</view>
                 <view style="margin-left:10rpx;font-size: small;">回复：</view>
@@ -146,7 +149,7 @@
                 <view class="reply_single">回复4</view>
                 <view class="cut_line"></view>
               </view>
-              <!-- 2 -->
+              <!-- eg2 -->
               <view class="reply_db">
                 <view class="reply_content">漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容</view>
                 <view style="margin-left:10rpx;font-size: small;">回复：</view>
@@ -156,7 +159,7 @@
                 <view class="reply_single">回复4</view>
                 <view class="cut_line"></view>
               </view>
-              <!-- 3 -->
+              <!-- eg3 -->
               <view class="reply_db">
                 <view class="reply_content">漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容漂流瓶内容</view>
                 <view style="margin-left:10rpx;font-size: small;">回复：</view>
@@ -166,12 +169,12 @@
                 <view class="reply_single">回复4</view>
                 <view class="cut_line"></view>
               </view>
-              <!-- <view wx:for="{{obj}}" wx:key="index"></view> -->
+
+              
             </view>
           </view>
         </view>
       </view>
     </view>
   </view>
-
 </view>

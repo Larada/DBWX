@@ -75,8 +75,8 @@
   /* margin-top: 10rpx; */
   flex-direction: column;
   position:fixed;
-  top:1400rpx;
-  /* top: 400rpx; */
+  /* top:1400rpx; */
+  top: 400rpx;
   display: flex;
   opacity: 0.5;
   z-index: 100;
@@ -92,7 +92,7 @@
   width: 85%;
   height: 900rpx;
   background-color: rgb(206, 221, 203);
-  /* z-index: 1000; */
+  z-index: 1000;
   z-index: -1;
   border-radius: 40rpx  0 40rpx 0;
 }

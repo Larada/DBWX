@@ -1,9 +1,3 @@
-/* pages/putBottlePage/putBottlePage.wxss */
-/* 应该是做成适应所有机型的，所以必然不能用vh和vw */
-/* 总之先把内容放在框里面，然后使用rpx */
-/* 沙比微信怎么用rpx还不给速写的啊 */
-/* 干脆直接放到一页里！ */
-
 .realBack{
   width: 100vw;
   height: auto;
